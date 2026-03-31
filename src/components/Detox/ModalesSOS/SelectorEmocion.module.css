@@ -1,0 +1,15 @@
+.contenedor { text-align: center; }
+.titulo { font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-bottom: 5px; }
+.subtitulo { color: #64748b; margin-bottom: 25px; font-size: 0.95rem; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.btnEmocion {
+  background: #f1f5f9; border: 1px solid #e2e8f0; padding: 15px; border-radius: 12px;
+  font-weight: 700; color: #334155; cursor: pointer; transition: all 0.2s;
+}
+.btnEmocion:hover { background: #3b82f6; color: white; border-color: #3b82f6; transform: scale(1.02); }
+
+/* --- MODO OSCURO --- */
+.dark .titulo { color: #f8fafc; }
+.dark .subtitulo { color: #94a3b8; }
+.dark .btnEmocion { background: #0f172a; border: 1px solid #334155; color: #cbd5e1; }
+.dark .btnEmocion:hover { background: #3b82f6; border-color: #3b82f6; color: white; }

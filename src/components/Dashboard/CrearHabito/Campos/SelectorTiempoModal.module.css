@@ -1,0 +1,154 @@
+/* src/components/Dashboard/CrearHabito/Campos/SelectorTiempoModal.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end; /* Lo pega abajo como en tu captura */
+  justify-content: center;
+  z-index: 9999; /* Super arriba */
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 24px 24px 0 0;
+  padding: 25px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+.modalLight {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.modalDark {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(128,128,128,0.2);
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.btnGuardar {
+  background: transparent;
+  color: #3b82f6;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+/* --- LA MAGIA DE LA RULETA CORREGIDA --- */
+.pickerContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 250px; /* Altura total de la ruleta */
+  overflow: hidden; /* Oculta lo que se sale */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+}
+
+.column {
+  flex: 1; /* Cada columna ocupa el mismo ancho */
+  height: 100%;
+  overflow-y: scroll; /* Scroll interno obligatorio */
+  scroll-snap-type: y mandatory; /* Alineación magnética obligatoria */
+  scrollbar-width: none; /* Oculta scrollbar en Firefox */
+  text-align: center;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.column::-webkit-scrollbar {
+  display: none; /* Oculta scrollbar en Chrome/Safari */
+}
+
+/* Espacio arriba y abajo para que el 00 y el último puedan centrarse */
+.spacer {
+  height: 100px;
+}
+
+.item {
+  height: 50px; /* Altura de cada número */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem; /* Números GRANDES */
+  scroll-snap-align: center; /* Se imanta en el centro */
+  transition: all 0.2s ease;
+  transform: scale(0.85); /* Números inactivos más pequeños */
+}
+
+.itemActive {
+  font-weight: 600;
+  opacity: 1;
+  transform: scale(1.1); /* Número centrado se agranda */
+}
+
+.itemInactive {
+  font-weight: 400;
+  opacity: 0.3; /* Números lejanos se desvanecen */
+}
+
+/* --- LA BARRA RESALTADORA CENTRAL --- */
+.highlightBar {
+  position: absolute;
+  top: 100px; /* Centrada verticalmente (Container Height - Item Height)/2 */
+  left: 0;
+  right: 0;
+  height: 50px;
+  border-radius: 12px;
+  pointer-events: none; /* No interfiere con el scroll */
+  z-index: 1;
+}
+
+.highlightLight {
+  background: rgba(0,0,0,0.05);
+}
+
+.highlightDark {
+  background: rgba(255,255,255,0.1);
+}
+
+/* --- LOS DOS PUNTOS INDIVIDUALES Y POSICIONADOS --- */
+.separatorLeft, .separatorRight {
+  position: absolute;
+  top: 105px; /* Un poco más abajo que la barra para alinearse */
+  font-size: 2rem;
+  font-weight: 600;
+  opacity: 1;
+  z-index: 3;
+}
+
+.separatorLeft {
+  left: 31%; /* Centrado entre Col 1 y 2 */
+}
+
+.separatorRight {
+  right: 31%; /* Centrado entre Col 2 y 3 */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(100px); }
+  to { opacity: 1; transform: translateY(0); }
+}

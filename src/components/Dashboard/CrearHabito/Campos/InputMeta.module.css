@@ -1,0 +1,12 @@
+/* src/components/Dashboard/CrearHabito/Campos/InputMeta.module.css */
+.label { font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.labelLight { color: #475569; }
+.labelDark { color: #cbd5e1; }
+.iconAccent { color: #3b82f6; }
+
+.input { width: 100%; padding: 14px 18px; box-sizing: border-box; border-radius: 14px; font-size: 1rem; font-weight: 500; outline: none; transition: all 0.2s ease; font-family: inherit; }
+.inputLight { border: 2px solid transparent; background-color: #f1f5f9; color: #0f172a; }
+.inputDark { border: 2px solid transparent; background-color: #0f172a; color: #f8fafc; }
+
+.inputLight:focus { border-color: #3b82f6; background-color: #ffffff; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); }
+.inputDark:focus { border-color: #3b82f6; background-color: #1e293b; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15); }

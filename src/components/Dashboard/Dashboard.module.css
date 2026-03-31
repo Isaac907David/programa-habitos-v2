@@ -1,0 +1,420 @@
+/* src/components/Dashboard/Dashboard.module.css */
+
+.dashboardContainer {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Temas globales */
+.light {
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+.dark {
+    background-color: #020617; 
+    color: #f8fafc;
+}
+
+/* --- Layout Principal y Fondo Motivacional --- */
+.mainContent {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    overflow-y: auto;
+    position: relative;
+    box-sizing: border-box;
+    
+    background-size: cover;        
+    background-repeat: no-repeat;  
+    background-position: center;   
+    background-attachment: fixed;  
+    transition: background-image 0.3s ease;
+}
+
+/* Cristal Ahumado (Modo Oscuro) */
+.dark .mainContent {
+    background-image: linear-gradient(
+        rgba(15, 23, 42, 0.55), 
+        rgba(15, 23, 42, 0.80)
+    ),
+    url('/fondo-atletas.jpg'); 
+}
+
+/* Cristal Esmerilado (Modo Claro) */
+.light .mainContent {
+    background-image: linear-gradient(
+        rgba(248, 250, 252, 0.35), 
+        rgba(248, 250, 252, 0.70)
+    ),
+    url('/fondo-atletas.jpg'); 
+}
+
+.pageHeader {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+.textAccent {
+    color: #3b82f6;
+}
+
+/* =========================================================
+   NUEVO DISEÑO: ESTADO VACÍO (TARJETA PUNTEADA)
+   ========================================================= */
+.emptyStateCard {
+    padding: 60px 40px;
+    border-radius: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    border: 2px dashed; 
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.emptyLight { background-color: rgba(255, 255, 255, 0.5); border-color: #cbd5e1; }
+.emptyDark { background-color: rgba(15, 23, 42, 0.4); border-color: #334155; }
+
+.emptyIconWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.emptyIcon { color: #3b82f6; }
+
+.welcomeTitle {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.welcomeText {
+    opacity: 0.9;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.btnCreateFirst {
+    margin-top: 30px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 50px; 
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+}
+
+.btnCreateFirst:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5);
+}
+
+
+/* =========================================================
+   NUEVO DISEÑO: TARJETAS DE HÁBITOS PREMIUM
+   ========================================================= */
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.sectionSubtitle { 
+    color: #64748b; 
+    margin-bottom: 30px; 
+}
+
+.habitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.habitCard {
+    padding: 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cardLight { 
+    background: rgba(255, 255, 255, 0.85); 
+    border: 1px solid rgba(0,0,0,0.05); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+}
+.cardDark { 
+    background: rgba(30, 41, 59, 0.7); 
+    border: 1px solid rgba(255,255,255,0.05); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+}
+
+.habitCard:hover { 
+    transform: translateY(-8px); 
+    border-color: #3b82f6; 
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15); 
+}
+
+.habitHeader { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.habitIconWrapper {
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    background-color: rgba(59, 130, 246, 0.1);
+    display: flex; align-items: center; justify-content: center;
+}
+.habitIcon { color: #3b82f6; }
+
+.habitInfo { display: flex; flex-direction: column; }
+
+.habitTitle { 
+    margin: 0; 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+}
+
+.habitMeta { 
+    margin: 5px 0 0 0; 
+    font-size: 0.9rem; 
+    color: #64748b; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+}
+
+/* Barra de Progreso */
+.progressContainer { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-top: 5px; 
+}
+.progressBarBg { 
+    flex: 1; 
+    height: 8px; 
+    background-color: rgba(100, 116, 139, 0.2); 
+    border-radius: 10px; 
+    overflow: hidden; 
+}
+.progressBarFill { 
+    height: 100%; 
+    background: linear-gradient(90deg, #3b82f6, #60a5fa); 
+    border-radius: 10px; 
+    transition: width 1s ease; 
+}
+.progressText { 
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    color: #3b82f6; 
+    width: 40px; 
+    text-align: right; 
+}
+
+/* Píldoras de Días */
+.daysContainer { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 5px; 
+}
+.dayPill { 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 0.8rem; 
+    font-weight: 700; 
+}
+.cardLight .dayInactive { background-color: #f1f5f9; color: #94a3b8; }
+.cardDark .dayInactive { background-color: #0f172a; color: #475569; }
+.dayActive { background-color: #3b82f6; color: white; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4); }
+
+/* Contenedor de Estadísticas Genérico */
+.statsContainer {
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light .statsContainer { background: rgba(255, 255, 255, 0.8); }
+.dark .statsContainer { background: rgba(30, 41, 59, 0.75); }
+
+/* Botón Flotante (FAB) Base para Escritorio */
+.fabButton {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    z-index: 1000;
+}
+
+.fabButton:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: #2563eb;
+}
+
+/* =========================================================
+   ✨ NUEVO: ESTILOS DE LAS ALERTAS FLOTANTES (TOASTS)
+   ========================================================= */
+.toastLight {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    font-weight: 500 !important;
+}
+
+.toastDark {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+    font-weight: 500 !important;
+}
+
+/* =========================================================
+   ✨ NUEVO: VISTA EN CONSTRUCCIÓN (Rutinas)
+   ========================================================= */
+.enConstruccionContainer {
+    text-align: center;
+    margin-top: 10vh;
+    animation: fadeIn 0.4s ease-in-out;
+}
+.enConstruccionLight { color: #64748b; }
+.enConstruccionDark { color: #94a3b8; }
+
+.enConstruccionIcono {
+    opacity: 0.2;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.enConstruccionTitulo {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.enConstruccionLight .enConstruccionTitulo { color: #000000; }
+.enConstruccionDark .enConstruccionTitulo { color: #ffffff; }
+
+/* =========================================================
+   DISEÑO RESPONSIVO (VISTA MÓVIL Y TABLET)
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+    .dashboardContainer {
+        flex-direction: column; 
+    }
+
+    .mainContent {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px 15px 90px 15px; 
+        background-attachment: scroll; 
+    }
+
+    .pageHeader {
+        margin-bottom: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .pageTitle { font-size: 1.8rem; }
+
+    /* Ajustes Estado Vacío Móvil */
+    .emptyStateCard {
+        padding: 40px 20px;
+        border-radius: 16px;
+        margin-top: 10px;
+    }
+
+    .welcomeTitle { font-size: 1.5rem; }
+    .welcomeText { font-size: 1rem; }
+    .btnCreateFirst {
+        width: 100%; 
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    /* Ajustes Tarjetas de Hábitos Móvil */
+    .habitsGrid {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+
+    .habitCard { padding: 20px; }
+    
+    .sectionTitle { font-size: 1.4rem; }
+
+    /* El Círculo Perfecto en Móvil */
+    .fabButton {
+        bottom: 90px; 
+        right: 20px;  
+        width: 60px;       
+        height: 60px;      
+        padding: 0;        
+        border-radius: 50%; 
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5); 
+    }
+
+    .fabButton span {
+        display: none; 
+    }
+}

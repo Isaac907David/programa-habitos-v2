@@ -1,0 +1,161 @@
+/* src/components/Dashboard/CrearHabito/Campos/SelectorRecordatorioModal.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 24px 24px 0 0;
+  padding: 25px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modalLight {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* El azul oscuro del temporizador */
+.modalDark {
+  background-color: #0f172a; 
+  color: #f8fafc;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(128,128,128,0.2);
+  position: relative;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.btnGuardar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  color: #3b82f6;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+/* --- LÓGICA DE LA RULETA --- */
+.pickerContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 250px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  user-select: none;
+}
+
+.column {
+  flex: 1;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  text-align: center;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.column::-webkit-scrollbar {
+  display: none;
+}
+
+.spacer {
+  height: 100px;
+}
+
+.item {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  scroll-snap-align: center;
+  transition: all 0.2s ease;
+  transform: scale(0.85);
+}
+
+.itemActive {
+  font-weight: 600;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.itemInactive {
+  font-weight: 400;
+  opacity: 0.3;
+}
+
+.itemText {
+  font-size: 1.6rem;
+}
+
+/* CAJA CENTRAL */
+.highlightBar {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.highlightLight {
+  background: rgba(0,0,0,0.05);
+}
+
+.highlightDark {
+  background: rgba(255,255,255,0.1); 
+}
+
+.separator {
+  position: absolute;
+  top: 105px;
+  right: 31%;
+  font-size: 2rem;
+  font-weight: 600;
+  opacity: 1;
+  z-index: 3;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(100px); }
+  to { opacity: 1; transform: translateY(0); }
+}

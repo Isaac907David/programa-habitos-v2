@@ -1,0 +1,43 @@
+/* src/components/Detox/Botones/BotonSOS.module.css */
+
+.boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background-color: #ef4444; /* Rojo alerta */
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  
+  /* Animación de pulso */
+  animation: pulso 2s infinite ease-in-out;
+}
+
+.boton:hover {
+  background-color: #dc2626; /* Un rojo más oscuro al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(239, 68, 68, 0.4);
+}
+
+.boton:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 5px rgba(239, 68, 68, 0.2);
+}
+
+.icono {
+  margin-top: -2px; /* Alineación óptica */
+}
+
+@keyframes pulso {
+  0% { transform: scale(1); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); }
+  50% { transform: scale(1.02); box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5); }
+  100% { transform: scale(1); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); }
+}

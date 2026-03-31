@@ -1,0 +1,73 @@
+/* src/components/Detox/ModalesSOS/ModalNuevoDetox.module.css */
+
+.overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999; animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+  background: #ffffff; width: 90%; max-width: 450px;
+  border-radius: 20px; padding: 30px; position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btnCerrar {
+  position: absolute; top: 20px; right: 20px;
+  background: none; border: none; color: #94a3b8;
+  cursor: pointer; transition: 0.2s;
+}
+.btnCerrar:hover { color: #ef4444; }
+
+.titulo { font-size: 1.5rem; font-weight: 800; color: #1e293b; margin: 0 0 5px 0; }
+.subtitulo { color: #64748b; font-size: 0.95rem; margin-bottom: 25px; }
+
+.formulario { display: flex; flex-direction: column; gap: 20px; }
+
+.inputGroup label { font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 5px; display: block; }
+.ayuda { font-size: 0.75rem; color: #94a3b8; margin: -3px 0 8px 0; }
+
+.inputWrapper {
+  position: relative; display: flex; align-items: center;
+}
+
+.icono { position: absolute; left: 15px; color: #94a3b8; }
+
+.inputWrapper input {
+  width: 100%; padding: 12px 15px 12px 42px;
+  border: 1px solid #cbd5e1; border-radius: 12px;
+  font-size: 1rem; color: #334155; transition: all 0.2s;
+}
+.inputWrapper input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+
+.acciones { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+
+.btnCancelar, .btnGuardar {
+  padding: 10px 20px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.2s; border: none;
+}
+.btnCancelar { background: #f1f5f9; color: #64748b; }
+.btnCancelar:hover { background: #e2e8f0; }
+.btnGuardar { background: #1e293b; color: white; }
+.btnGuardar:hover { background: #0f172a; transform: translateY(-1px); }
+.btnGuardar:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- MODO OSCURO --- */
+.darkOverlay { background: rgba(15, 23, 42, 0.85); }
+.dark.modal { background: #1e293b; border: 1px solid #334155; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+.dark .titulo { color: #f8fafc; }
+.dark .subtitulo { color: #94a3b8; }
+.dark .inputGroup label { color: #cbd5e1; }
+.dark .ayuda { color: #64748b; }
+.dark .inputWrapper input { background: #0f172a; border-color: #334155; color: #f8fafc; }
+.dark .inputWrapper input:focus { border-color: #3b82f6; }
+.dark .icono { color: #64748b; }
+.dark .btnCancelar { background: #334155; color: #cbd5e1; }
+.dark .btnCancelar:hover { background: #475569; color: #f8fafc; }
+.dark .btnGuardar { background: #3b82f6; color: white; }
+.dark .btnGuardar:hover { background: #2563eb; }
+.dark .btnGuardar:disabled { background: #1e293b; color: #475569; border: 1px solid #334155; }

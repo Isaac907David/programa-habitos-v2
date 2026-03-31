@@ -1,0 +1,143 @@
+/* src/components/Estadisticas/Calendarios/Anual.module.css */
+
+.calendarioContainer {
+    background-color: transparent;
+    border-radius: 16px;
+    padding: 15px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Navegación (Flechas y Año) */
+.navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 5px;
+}
+
+.btnNav {
+    background-color: #f1f5f9;
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #475569;
+}
+.darkTheme .btnNav { background-color: #1e293b; color: #94a3b8; }
+.btnNav:hover:not(:disabled) { background-color: #3b82f6; color: white; transform: scale(1.05); }
+
+.rangoTexto {
+    font-weight: 800;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #334155;
+    letter-spacing: 1px;
+}
+.darkTheme .rangoTexto { color: #f8fafc; }
+
+/* NUEVO: Tarjeta Blanca que envuelve todo */
+.tarjetaAnual {
+    background-color: #ffffff;
+    padding: 20px 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9;
+}
+.darkTheme .tarjetaAnual {
+    background-color: #0f172a;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid #1e293b;
+}
+
+/* NUEVO: Flexbox para poner las letras al lado del scroll */
+.heatmapCuerpo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Separación entre letras y cuadritos */
+}
+
+/* NUEVO: La columna de letras de los días */
+.etiquetasDias {
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    gap: 4px; /* MATEMÁTICA: Debe ser idéntico al gap de los cuadritos */
+}
+
+.etiquetaDia {
+    height: clamp(12px, 3.5vw, 15px); /* MATEMÁTICA: Idéntico a la altura del cuadro */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #94a3b8;
+}
+
+/* Contenedor con Scroll Horizontal (Especial para tu móvil) */
+.scrollWrapper {
+    flex: 1; /* Ocupa todo el espacio restante a la derecha */
+    overflow-x: auto;
+    scrollbar-width: none; 
+}
+.scrollWrapper::-webkit-scrollbar { display: none; }
+
+/* El Grid que dibuja el mapa de calor */
+.heatmapGrid {
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    grid-auto-flow: column;
+    gap: 4px;
+    width: max-content; 
+    padding-bottom: 2px;
+}
+
+/* El Cuadrito de cada día */
+.cuadroDia {
+    width: clamp(12px, 3.5vw, 15px);
+    height: clamp(12px, 3.5vw, 15px);
+    border-radius: 4px; 
+    transition: transform 0.2s ease;
+}
+.cuadroDia:hover {
+    transform: scale(1.2);
+}
+
+.cuadroVacio { background-color: transparent; }
+
+/* NIVELES DE COLOR (Estilo GitHub) */
+.nivel0 { background-color: #f1f5f9; }
+.darkTheme .nivel0 { background-color: #1e293b; }
+
+.nivel1 { background-color: #fbbf24; }
+.darkTheme .nivel1 { background-color: #b45309; }
+
+.nivel2 { background-color: #10b981; box-shadow: 0 0 5px rgba(16, 185, 129, 0.4); }
+.darkTheme .nivel2 { background-color: #059669; }
+
+.nivelFallado { background-color: #fee2e2; }
+.darkTheme .nivelFallado { background-color: #450a0a; }
+
+/* Leyenda inferior */
+.leyenda {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+}
+.darkTheme .leyenda { color: #94a3b8; }
+
+.leyendaItem {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}

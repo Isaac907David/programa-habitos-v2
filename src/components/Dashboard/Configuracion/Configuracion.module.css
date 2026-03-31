@@ -1,0 +1,188 @@
+/* src/components/Dashboard/Configuracion/Configuracion.module.css */
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 24px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.containerLight { background-color: #ffffff; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05); }
+.containerDark { background-color: #1e293b; border: 1px solid rgba(255,255,255,0.05); }
+
+/* --- Cabecera --- */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.btnVolver {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.btnVolver:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.containerLight .title { color: #0f172a; }
+.containerDark .title { color: #f8fafc; }
+
+/* --- Sección del Avatar --- */
+.avatarSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.avatarWrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.avatarImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3b82f6;
+    background-color: #f1f5f9;
+}
+
+.avatarPlaceholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    border: 4px solid transparent;
+}
+
+.btnCambiarFoto {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.btnCambiarFoto:hover {
+    transform: scale(1.1);
+}
+
+/* Ocultamos el input de archivo real */
+.fileInputHidden {
+    display: none;
+}
+
+/* --- Formulario --- */
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.containerLight .label { color: #64748b; }
+.containerDark .label { color: #94a3b8; }
+
+.input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.containerLight .input {
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    color: #1e293b;
+}
+.containerLight .input:focus { border-color: #3b82f6; background-color: #fff; }
+
+.containerDark .input {
+    background-color: #0f172a;
+    border: 2px solid #334155;
+    color: #f8fafc;
+}
+.containerDark .input:focus { border-color: #3b82f6; }
+
+/* --- Botón Guardar --- */
+.btnGuardar {
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    border: none;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+}
+
+.btnGuardar:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.btnGuardar:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

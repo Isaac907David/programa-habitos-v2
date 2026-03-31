@@ -1,0 +1,33 @@
+/* src/components/Detox/Botones/BotonRecaida.module.css */
+
+.boton {
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: #ef4444; /* Rojo pero solo en el texto/borde */
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.boton:hover {
+  background-color: rgba(239, 68, 68, 0.05); /* Un fondo rojo muy sutil al hover */
+  border-color: #fca5a5;
+}
+
+.textoPresionado {
+  color: #ffffff; /* Cambiamos el color a blanco cuando se presiona */
+  font-weight: 800;
+  z-index: 2; /* Por encima de cualquier efecto visual */
+  position: relative;
+}
+
+/* EFECTO VISUAL DE PROGRESO:
+   Podríamos agregar un efecto avanzado de barra de progreso que se llena
+   detrás del botón usando pseudoelementos y animaciones, pero por ahora
+   lo mantendremos limpio y simple con el cambio de texto. */

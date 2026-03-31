@@ -1,0 +1,150 @@
+/* src/components/Dashboard/EditarHabito/EditarHabito.module.css */
+
+.container {
+    padding: 30px;
+    border-radius: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.light {
+    background-color: #ffffff;
+    color: #1e293b;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+}
+
+.dark {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btnVolver {
+    background: transparent;
+    border: none;
+    color: #3b82f6;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+}
+.btnVolver:hover { transform: scale(1.1); }
+
+.title {
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+}
+.dark .label { color: #94a3b8; }
+
+.input {
+    padding: 15px 20px;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+.dark .input {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+.input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Selector de Días */
+.diasContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.diaPill {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.diaActive {
+    background-color: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.diaInactive {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+.dark .diaInactive {
+    background-color: #1e293b;
+    color: #94a3b8;
+}
+.diaInactive:hover { background-color: #e2e8f0; }
+.dark .diaInactive:hover { background-color: #334155; }
+
+/* Botón de Guardar */
+.btnSubmit {
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    background-color: #10b981;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+.btnSubmit:hover:not(:disabled) {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+}
+.btnSubmit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

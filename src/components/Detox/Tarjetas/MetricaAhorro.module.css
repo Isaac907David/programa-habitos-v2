@@ -1,0 +1,58 @@
+/* src/components/Detox/Tarjetas/MetricaAhorro.module.css */
+
+.contenedor {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: rgba(16, 185, 129, 0.08); /* Fondo verde muy sutil */
+  border-left: 4px solid #10b981; /* Borde esmeralda vibrante */
+  border-radius: 12px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.iconoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.icono {
+  color: #10b981; /* Verde esmeralda */
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.monto {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #065f46; /* Verde oscuro para el texto del dinero */
+  font-family: 'Courier New', Courier, monospace; /* Para que los números no salten al cambiar los centavos */
+  letter-spacing: -0.5px;
+}
+
+/* --- MODO OSCURO --- */
+.dark.contenedor {
+  background: rgba(16, 185, 129, 0.1);
+  border-left-color: #059669;
+}
+.dark .iconoWrapper { background-color: #1e293b; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.dark .label { color: #94a3b8; }
+.dark .monto { color: #34d399; }

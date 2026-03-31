@@ -1,0 +1,33 @@
+.container {
+  flex: 1; /* LA CLAVE */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 5px;
+  border-left: 4px solid #00d1ff;
+  background: rgba(0, 209, 255, 0.05);
+  border-radius: 12px;
+  text-align: center;
+  
+  /* Animación */
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation-delay: 0.3s;
+}
+
+.label { 
+  font-size: 0.60rem; 
+  font-weight: 800; 
+  color: #737373; 
+  text-transform: uppercase; 
+  white-space: nowrap;
+}
+
+.valueWrapper { display: flex; align-items: center; gap: 6px; margin-top: 5px; }
+.icon { color: #00d1ff; }
+.number { font-size: 1.1rem; font-weight: 800; }
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}

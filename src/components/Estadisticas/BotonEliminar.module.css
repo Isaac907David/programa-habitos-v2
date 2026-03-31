@@ -1,0 +1,22 @@
+.btnPeligro {
+    background-color: transparent;
+    color: #ef4444;
+    border: 2px solid #ef4444;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.btnPeligro:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btnPeligro:hover:not(:disabled) {
+    background-color: #fef2f2;
+}

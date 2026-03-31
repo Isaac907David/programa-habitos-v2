@@ -1,0 +1,103 @@
+/* src/components/Detox/Tarjetas/TarjetaMalHabito.module.css */
+
+.tarjeta {
+  padding: 25px;
+  background: linear-gradient(145deg, #ffffff, #fcfdfe);
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Sombra suave para profundidad */
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Efecto hover suave para la tarjeta entera */
+.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  border-color: #cbd5e1;
+}
+
+/* MODIFICADO: Ahora usa flexbox para alinear el título y el botón de basura */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nombreHabito {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #1e293b;
+  text-transform: capitalize;
+  letter-spacing: -0.5px;
+  margin: 0; /* Añadido para que no empuje el diseño en el flexbox */
+}
+
+/* NUEVO: Estilos para el botón de eliminar */
+.btnEliminar {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnEliminar:hover {
+  color: #ef4444; /* Rojo alerta al pasar el ratón */
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.metricasWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre el contador de días y la métrica de ahorro */
+  margin-bottom: 25px;
+}
+
+.accionesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espacio entre el botón S.O.S. y el de recaída */
+  margin-top: 10px;
+}
+
+.recaidaWrapper {
+  opacity: 0.6; /* Hacemos el botón de recaída más discreto por defecto */
+  transition: opacity 0.3s ease;
+}
+
+.recaidaWrapper:hover {
+  opacity: 1; /* Se vuelve 100% visible al pasar el ratón */
+}
+
+/* --- MODO OSCURO --- */
+.dark.tarjeta {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border-color: #334155;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.dark.tarjeta:hover {
+  border-color: #475569;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.dark .nombreHabito { 
+  color: #f8fafc; 
+}
+
+/* NUEVO MODO OSCURO: Colores para el botón de eliminar */
+.dark .btnEliminar { 
+  color: #475569; 
+}
+
+.dark .btnEliminar:hover { 
+  color: #f87171; 
+  background-color: rgba(248, 113, 113, 0.1); 
+}

@@ -1,0 +1,119 @@
+/* src/components/Dashboard/RutinasPerfil/CabeceraPerfil.module.css */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  animation: slideDown 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+/* --- EL AVATAR: AHORA UN BOTÓN FLOTANTE CON RESPLANDOR --- */
+.avatarWrapper {
+  position: relative; 
+  width: 95px;
+  height: 95px;
+  min-width: 95px; 
+  min-height: 95px;
+  border-radius: 50%;
+  
+  /* UX: Puntero de mano */
+  cursor: pointer;
+  
+  /* --- MEJORA: DEGRADADO DE FONDO PROFESIONAL (PLACEHOLDER) --- 
+     Cambiamos el fondo blanco plano por un degradado vibrante.
+  */
+  background-image: linear-gradient(135deg, #1d4ed8 0%, #60a5fa 100%);
+  
+  /* Mantenemos sombras suaves de profundidad */
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.1), 
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  
+  /* Transición suave para el 'clic' */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto Hover (PC) */
+.avatarWrapper:hover { 
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.15),
+    0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Efecto Active (Pulsación) */
+.avatarWrapper:active {
+  transform: translateY(1px) scale(0.96);
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* LA IMAGEN: Cuida que sea circular y cubra el degradado si existe */
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  display: block;
+  transition: all 0.3s ease;
+  z-index: 1; /* Queda sobre el degradado */
+}
+
+/* --- MEJORA: LA INICIAL BLANCA Y CENTRADA (PLACEHOLDER) --- */
+.avatarLetra { 
+  font-size: 38px; /* Ligeramente más grande para visibilidad */
+  font-weight: 800; 
+  color: #ffffff; /* Blanco puro para contrastar el degradado */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Sutil sombra de texto para relieve */
+  text-transform: uppercase;
+}
+
+.info { 
+  flex: 1; 
+}
+
+/* ⚠️ Nota: Le quitamos el 'color' fijo a estas dos clases */
+.username { 
+  margin: 0; 
+  font-size: 1.6rem; 
+  font-weight: 800; 
+  letter-spacing: -0.5px; 
+}
+
+.bio { 
+  margin: 4px 0 0 0; 
+  font-size: 0.95rem; 
+  line-height: 1.3; 
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   NUEVO: CLASES DE COLORES DINÁMICOS PARA MODOS CLARO/OSCURO
+   ========================================================= */
+
+.textoLight {
+  color: #1e293b; /* Oscuro original para modo claro */
+}
+
+.textoDark {
+  color: #f8fafc; /* Blanco brillante para modo oscuro */
+}
+
+.subtextoLight {
+  color: #64748b; /* Gris original para modo claro */
+}
+
+.subtextoDark {
+  color: #94a3b8; /* Gris plateado para modo oscuro */
+}

@@ -1,0 +1,155 @@
+/* src/components/Dashboard/Sidebar.module.css */
+
+.sidebar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: 1px solid transparent;
+    z-index: 100;
+    overflow: hidden; /* Evita que los elementos se desborden al colapsar */
+}
+
+.sidebarLight {
+    background-color: #ffffff;
+    color: #1e293b;
+    border-color: #f1f5f9;
+}
+
+.sidebarDark {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border-color: #1e293b;
+}
+
+/* --- Cabecera y Perfil --- */
+.sidebarHeader {
+    padding: 24px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: padding 0.3s ease;
+}
+
+/* Ajuste cuando está colapsado para centrar el PerfilUsuario */
+.headerCollapsed {
+    padding: 24px 0;
+    justify-content: center;
+}
+
+/* Capa invisible para expandir al hacer clic en el avatar cuando está cerrado */
+.expandOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.toggleBtn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    z-index: 10; /* Por encima del overlay para que siga funcionando */
+}
+
+.toggleBtn:hover {
+    background-color: rgba(148, 163, 184, 0.1);
+    color: #3b82f6;
+}
+
+/* --- Navegación --- */
+.navLinks {
+    flex: 1;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menuItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.menuItem:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+/* --- Footer --- */
+.footer {
+    padding: 20px 15px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btnAction {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.btnTheme {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.btnThemeDark {
+    background-color: #1e293b;
+    color: #cbd5e1;
+}
+
+.btnLogout {
+    background-color: #fef2f2;
+    color: #ef4444;
+}
+
+.btnLogout:hover {
+    background-color: #fee2e2;
+}
+
+/* Agrega esto al final de tu archivo PerfilUsuario.module.css */
+
+/* Colores dinámicos para el Nombre */
+.textoLight {
+  color: #0f172a; /* Oscuro para modo claro */
+}
+.textoDark {
+  color: #f8fafc; /* Blanco para modo oscuro */
+}
+
+/* Colores dinámicos para el rango / subtítulo */
+.subtextoLight {
+  color: #64748b; /* Gris oscuro para modo claro */
+}
+.subtextoDark {
+  color: #94a3b8; /* Gris plateado para modo oscuro */
+}

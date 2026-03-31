@@ -1,0 +1,367 @@
+/* src/components/Dashboard/Sidebar.module.css */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.03);
+  z-index: 100;
+  overflow: hidden;
+}
+
+/* Estados de apertura */
+.open {
+  width: 260px;
+  padding: 30px 20px;
+}
+
+.closed {
+  width: 85px;
+  padding: 30px 15px;
+  align-items: center;
+}
+
+/* Temas heredados */
+.light {
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+}
+
+.dark {
+  background-color: #1e293b;
+  border-right: 1px solid #334155;
+}
+
+/* --- SECCIÓN SUPERIOR --- */
+.topSection {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.userInfoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.centerItems {
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* --- AVATAR INTERACTIVO --- */
+.avatarWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.25);
+}
+
+.avatarWrapper:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 18px rgba(59, 130, 246, 0.45);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+/* --- TEXTOS DEL USUARIO --- */
+.userDetails {
+  flex: 1;
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.userName {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.light .userName { color: #1e293b; }
+.dark .userName { color: #f8fafc; }
+
+.userRole {
+  margin: 4px 0 0 0;
+  font-size: 0.8rem;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* --- BOTÓN TOGGLE --- */
+.toggleBtnOpen, .toggleBtnClosed {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.toggleBtnOpen { padding: 4px; }
+.toggleBtnClosed { padding: 8px; margin-top: 5px; }
+
+.toggleBtnOpen:hover, .toggleBtnClosed:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+/* --- NAVEGACIÓN --- */
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  width: 100%;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #64748b;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.closed .navItem {
+  justify-content: center;
+  padding: 14px;
+}
+
+.navItem:hover {
+  background-color: rgba(59, 130, 246, 0.08);
+  color: #3b82f6;
+}
+
+/* --- FOOTER ACTIONS (Contenedor del Menú de Configuración) --- */
+.footerActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  width: 100%;
+  position: relative; 
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  background: transparent;
+  color: #64748b;
+}
+
+.actionBtn:hover, .activeSetting {
+  background-color: rgba(59, 130, 246, 0.08);
+  color: #3b82f6;
+}
+
+.closed .actionBtn {
+  justify-content: center;
+  padding: 14px;
+}
+
+/* =========================================================
+   ESTILOS DEL MENÚ DESPLEGABLE DE CONFIGURACIÓN
+   ========================================================= */
+
+.settingsDropdown {
+  position: absolute;
+  bottom: 110%; 
+  left: 0; 
+  width: 200px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+  animation: slideUpFade 0.2s ease-out;
+}
+
+.dropdownLight {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.dropdownDark {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.themeBtn { background-color: transparent; color: #475569; }
+.dropdownDark .themeBtn { color: #94a3b8; }
+.themeBtn:hover { background-color: #f1f5f9; }
+.dropdownDark .themeBtn:hover { background-color: #0f172a; }
+
+.logoutBtn { background-color: transparent; color: #ef4444; }
+.dropdownDark .logoutBtn { color: #f87171; }
+.logoutBtn:hover { background-color: #fef2f2; }
+.dropdownDark .logoutBtn:hover { background-color: rgba(239, 68, 68, 0.08); }
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* =========================================================
+   MEJORA MÓVIL (ESTILO INSTAGRAM / FACEBOOK - BOTTOM BAR)
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: fixed; 
+        bottom: 0; 
+        left: 0;
+        width: 100vw !important; 
+        height: 70px !important; 
+        overflow: visible !important; 
+        flex-direction: row; 
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px !important;
+        z-index: 9999;
+        border-right: none; 
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05); 
+    }
+
+    .light.sidebar { border-top: 1px solid #e2e8f0; }
+    .dark.sidebar { border-top: 1px solid #334155; }
+
+    .topSection, .toggleBtnOpen, .toggleBtnClosed {
+        display: none !important;
+    }
+
+    .navMenu {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        gap: 0;
+    }
+
+    .footerActions {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        margin-top: 0;
+        gap: 10px;
+        position: static; 
+    }
+
+    /* =========================================================
+       CENTRADOR ABSOLUTO PARA EL MENÚ MÓVIL
+       ========================================================= */
+    .navItem, .actionBtn, .closed .navItem, .closed .actionBtn {
+        padding: 0 !important; 
+        width: 50px !important;  
+        height: 50px !important; 
+        display: flex !important;
+        justify-content: center !important; 
+        align-items: center !important;     
+        border-radius: 50% !important;      
+        margin: 0;
+        box-sizing: border-box; 
+        font-size: 0 !important; /* MAGIA RESTAURADA: Oculta el texto general */
+    }
+
+    /* SEGURO EXTRA: Desaparecemos las letras (span) por completo */
+    .navItem span, .actionBtn span {
+        display: none !important;
+    }
+
+    /* Forzamos al ícono a comportarse como un bloque rígido en el centro */
+    .navItem svg, .actionBtn svg, .navItem i, .actionBtn i {
+        display: block !important; 
+        margin: 0 auto !important; 
+        width: 24px !important;    
+        height: 24px !important;   
+    }
+
+    /* === AJUSTE DEL MENÚ DESPLEGABLE PARA MÓVILES === */
+    .settingsDropdown {
+        bottom: 80px; 
+        right: 15px; 
+        left: auto; 
+        width: 220px;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.15); 
+    }
+}
+
+/* --- COLORES DINÁMICOS PARA EL PERFIL --- */
+.textoLight {
+  color: #0f172a; /* Oscuro para modo claro */
+}
+
+.textoDark {
+  color: #f8fafc; /* Blanco brillante para modo oscuro */
+}
+
+.subtextoLight {
+  color: #64748b; /* Gris oscuro para modo claro */
+}
+
+.subtextoDark {
+  color: #94a3b8; /* Gris plateado para modo oscuro */
+}

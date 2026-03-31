@@ -1,0 +1,106 @@
+/* src/components/Detox/DetoxDashboard.module.css */
+
+.dashboardContainer {
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap; /* Para que en celular el botón baje si no cabe */
+  gap: 15px;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 5px 0;
+  letter-spacing: -1px;
+}
+
+.subtitulo {
+  color: #64748b;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.btnAgregar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1e293b;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btnAgregar:hover {
+  background-color: #334155;
+  transform: translateY(-2px);
+}
+
+/* LA CUADRÍCULA MÁGICA */
+.gridTarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  align-items: start;
+}
+
+/* ESTADOS DE CARGA Y VACÍO */
+.cargando, .estadoVacio {
+  text-align: center;
+  padding: 50px 20px;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.estadoVacio {
+  background-color: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 20px;
+}
+
+.estadoVacio h3 {
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo para celulares pequeños */
+@media (max-width: 600px) {
+  .cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .btnAgregar {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --- MODO OSCURO --- */
+.dark .titulo { color: #f8fafc; }
+.dark .subtitulo { color: #94a3b8; }
+.dark .estadoVacio { background-color: #1e293b; border-color: #334155; }
+.dark .estadoVacio h3 { color: #f1f5f9; }
+.dark .estadoVacio p { color: #94a3b8; }
+.darkText { color: #f8fafc; }

@@ -1,0 +1,46 @@
+/* Botón Flotante (FAB) Base para Escritorio (Tu código exacto) */
+.fabButton {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    z-index: 1000;
+}
+
+.fabButton:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: #2563eb;
+}
+
+/* =========================================================
+   DISEÑO RESPONSIVO (VISTA MÓVIL Y TABLET)
+   ========================================================= */
+@media screen and (max-width: 768px) {
+    /* El Círculo Perfecto en Móvil (Tu lógica exacta) */
+    .fabButton {
+        bottom: 90px; /* Nota: Si lo ves muy arriba en el perfil, bájalo a 30px */
+        right: 20px;  
+        width: 60px;       
+        height: 60px;      
+        padding: 0;        
+        border-radius: 50%; 
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5); 
+    }
+
+    /* Aquí es donde se esconde el texto "Subir Victoria" en el celular */
+    .fabButton span {
+        display: none; 
+    }
+}
