@@ -6,6 +6,8 @@ import CrearHabito from './CrearHabito/CrearHabito';
 import EditarHabito from './EditarHabito/EditarHabito'; 
 import RutinasPerfil from './RutinasPerfil/RutinasPerfil'; 
 import DetoxDashboard from '../Detox/DetoxDashboard'; 
+// 👇 IMPORTAMOS EL NUEVO COMPONENTE DE NOTIFICACIONES AQUÍ 👇
+import PermisoNotificacion from '../UI/Notificaciones/PermisoNotificacion';
 import styles from './Dashboard.module.css';
 import { PlusCircle, Activity, Target, Clock } from 'lucide-react'; 
 import { supabase } from '../../supabase'; 
@@ -55,15 +57,8 @@ function Dashboard({ session }) {
   // 🔔 SISTEMA DE NOTIFICACIONES
   // ==========================================
   
-  useEffect(() => {
-    if ('Notification' in window) {
-      Notification.requestPermission().then(permission => {
-        console.log("🚦 Estado del permiso de notificaciones:", permission);
-      });
-    } else {
-      console.log("❌ Este navegador no soporta notificaciones web.");
-    }
-  }, []);
+  // 🛑 ELIMINAMOS LA PETICIÓN AUTOMÁTICA AQUÍ.
+  // Ahora el componente <PermisoNotificacion /> se encarga de pedirlo amablemente.
 
   useEffect(() => {
     if (!('Notification' in window) || misHabitos.length === 0) return;
@@ -338,6 +333,10 @@ function Dashboard({ session }) {
 
   return (
     <div className={`${styles.dashboardContainer} ${isDarkMode ? styles.dark : styles.light}`}>
+      
+      {/* 👇 AQUÍ COLOCAMOS NUESTRO MODAL BONITO 👇 */}
+      <PermisoNotificacion />
+
       <Sidebar 
         isOpen={isOpen} toggleSidebar={() => setIsOpen(!isOpen)} 
         isDarkMode={isDarkMode} toggleTheme={() => setIsDarkMode(!isDarkMode)}
