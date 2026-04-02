@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-18.2.0-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-Backend-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
 
-**[🟢 Ver Proyecto en Vivo Aquí](https://tu-link-de-vercel.vercel.app/)** *(Abre este enlace desde tu móvil para instalar la app).*
+**[🟢 Ver Proyecto en Vivo Aquí](https://programa-habitos-v2-72p4m4s6a-isaac907davids-projects.vercel.app/)** *(Abre este enlace desde tu móvil para instalar la app).*
 
 ---
 
