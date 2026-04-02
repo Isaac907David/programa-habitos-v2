@@ -122,29 +122,124 @@
 .diaInactive:hover { background-color: #e2e8f0; }
 .dark .diaInactive:hover { background-color: #334155; }
 
-/* Botón de Guardar */
-.btnSubmit {
-    padding: 16px;
+/* =========================================
+   ESTILOS AÑADIDOS PARA EditarHabito.jsx 
+   ========================================= */
+
+/* Estructura general de la tarjeta y grid */
+.card {
+    padding: 30px;
+    border-radius: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+.cardLight {
+    background-color: #ffffff;
+    color: #1e293b;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+}
+.cardDark {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.headerForm {
+    margin-bottom: 30px;
+}
+.subtitle {
+    color: #64748b;
+    margin-top: 5px;
+}
+.dark .subtitle { color: #94a3b8; }
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+.col {
+    flex: 1;
+}
+
+/* Contenedor y Botones Nuevos */
+.botonesContainer {
+    display: flex;
+    flex-direction: row; /* Fuerza a que estén en fila */
+    gap: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.btnCancelar, .btnGuardar {
+    padding: 16px 10px; /* Reduje un poco el padding lateral para que quepan bien en móviles pequeños */
     border-radius: 16px;
-    border: none;
-    background-color: #10b981;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     transition: all 0.3s ease;
-    margin-top: 10px;
+    flex: 1; /* Esto hace que cada uno ocupe el 50% del espacio disponible */
+    border: none;
 }
-.btnSubmit:hover:not(:disabled) {
+
+/* --- Botón Cancelar (Modo Claro) --- */
+.btnCancelarLight {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+.btnCancelarLight:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+/* --- Botón Cancelar (Modo Oscuro) --- */
+.btnCancelarDark {
+    background-color: #1e293b;
+    color: #94a3b8;
+    border: 1px solid #334155;
+}
+.btnCancelarDark:hover {
+    background-color: #ef4444; 
+    color: white;
+    border-color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* --- Botón Actualizar (Ambos Modos) --- */
+.btnGuardar {
+    background-color: #10b981; 
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+.btnGuardar:hover:not(:disabled) {
     background-color: #059669;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
 }
-.btnSubmit:disabled {
-    opacity: 0.6;
+
+/* Estados Desactivados */
+.btnGuardar:disabled, .btnCancelar:disabled {
+    opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column; /* Esto apila el tiempo y la hora (está bien) */
+    }
+    /* Eliminamos la regla que apilaba los botones para que se mantengan lado a lado */
 }

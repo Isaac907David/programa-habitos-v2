@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '../../../supabase'; 
 import toast from 'react-hot-toast'; 
 import { Save } from 'lucide-react';
-// Reutilizamos los estilos de CrearHabito porque la tarjeta es idéntica
-import styles from '../CrearHabito/CrearHabito.module.css'; 
+
+// 👇 ESTA ES LA LÍNEA CLAVE CORREGIDA 👇
+// Ahora apuntamos a su propio archivo CSS para que cargue los botones premium
+import styles from './EditarHabito.module.css'; 
 
 // ♻️ ¡RECICLAMOS NUESTROS COMPONENTES MÁGICOS!
 import InputNombre from '../CrearHabito/Campos/InputNombre';

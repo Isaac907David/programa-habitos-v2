@@ -54,7 +54,7 @@ function Dashboard({ session }) {
   };
 
   // ==========================================
-  // 🔔 SISTEMA DE NOTIFICACIONES
+  // 🔔 SISTEMA DE NOTIFICACIONES (VERSIÓN SERVICE WORKER)
   // ==========================================
   
   // 🛑 ELIMINAMOS LA PETICIÓN AUTOMÁTICA AQUÍ.
@@ -77,11 +77,31 @@ function Dashboard({ session }) {
           !notificadosHoy.includes(habito.id)
         ) {
           if (Notification.permission === 'granted') {
-            new Notification(`¡Es hora de ${habito.nombre}! ⏱️`, {
-              // USAMOS EL TRADUCTOR AQUÍ TAMBIÉN
-              body: `Tienes una meta de ${formatearSegundos(habito.tiempo_objetivo)} para hoy.`,
-              requireInteraction: true
-            });
+            
+            // 👇 MEJORA: Llamamos al Service Worker para notificaciones nativas avanzadas
+            if ('serviceWorker' in navigator) {
+              navigator.serviceWorker.ready.then(registration => {
+                registration.showNotification(`¡Es hora de ${habito.nombre}! ⏱️`, {
+                  body: `Tienes una meta de ${formatearSegundos(habito.tiempo_objetivo)} para hoy.`,
+                  icon: '/logo-habitos.png',
+                  badge: '/logo-habitos.png',
+                  vibrate: [200, 100, 200],
+                  tag: `habito-${habito.id}`, // Evita que se acumulen duplicados
+                  requireInteraction: true,
+                  actions: [
+                    { action: 'confirmar', title: 'Completado ✔️' },
+                    { action: 'cerrar', title: 'Cerrar ❌' }
+                  ]
+                });
+              });
+            } else {
+              // Fallback por si el Service Worker falla en algún navegador antiguo
+              new Notification(`¡Es hora de ${habito.nombre}! ⏱️`, {
+                body: `Tienes una meta de ${formatearSegundos(habito.tiempo_objetivo)} para hoy.`,
+                requireInteraction: true
+              });
+            }
+
             setNotificadosHoy(prev => [...prev, habito.id]);
           }
         }
